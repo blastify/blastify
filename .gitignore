@@ -11,4 +11,8 @@ build_config.mk
 blastify
 blastifyd
 libblastify.a
-!include
+
+# Don't ignore the files in the subdirectory of include/blastify
+!blastify/
+
+
