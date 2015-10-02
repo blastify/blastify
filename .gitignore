@@ -11,3 +11,4 @@ build_config.mk
 blastify
 blastifyd
 libblastify.a
+!include

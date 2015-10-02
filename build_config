@@ -71,6 +71,7 @@ BLASTIFY_SOURCES+='./src/blastify.cc'
 BLASTIFYD_SOURCES+='./src/blastifyd.cc'
 
 # Source files for the blastify library
+LIBBLASTIFY_SOURCES+='./src/buffer.cc '
 LIBBLASTIFY_SOURCES+='./src/event.cc '
 
 # Lint sources
