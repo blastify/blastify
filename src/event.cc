@@ -13,4 +13,29 @@
 // limitations under the License. See the AUTHORS file for names of
 // contributors.
 
-int g = 0;
+#include "blastify/event.h"
+
+namespace blastify {
+
+Event::Event(bool init_with_now) : timestamp_(init_with_now ? Now() : 0) {}
+
+Event& Event::set_timestamp(int64_t epoch_nanos) {
+  timestamp_ = epoch_nanos;
+  return *this;
+}
+
+int64_t Event::timestamp() const { return timestamp_; }
+
+const std::string& Event::GetField(const std::string& field_name) const {
+  static const std::string empty("");
+  data_type::const_iterator i = data_.find(field_name);
+  return ((i != data_.end()) ? i->second : empty);
+}
+
+int64_t Event::Now() {
+  struct timespec ts = {0};
+  clock_gettime(CLOCK_REALTIME, &ts);
+  return (ts.tv_sec * 1000000000) + ts.tv_nsec;
+}
+
+}  // namespace blastify

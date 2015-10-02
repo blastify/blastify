@@ -61,12 +61,12 @@ count:
 	wc -l $(CPPLINT_SOURCES)
 
 # Blastify client
-blastify: $(BLASTIFY_OBJS)
-	$(CXX) $(CXXFLAGS) -o blastify $(BLASTIFY_OBJS) $(LIBRARIES)
+blastify: $(BLASTIFY_OBJS) libblastify.a
+	$(CXX) $(CXXFLAGS) -o blastify $(BLASTIFY_OBJS) $(LIBRARIES) libblastify.a
 
 # Blastify daemon
-blastifyd: $(BLASTIFYD_OBJS)
-	$(CXX) $(CXXFLAGS) -o blastifyd $(BLASTIFYD_OBJS) $(LIBRARIES)
+blastifyd: $(BLASTIFYD_OBJS) libblastify.a
+	$(CXX) $(CXXFLAGS) -o blastifyd $(BLASTIFYD_OBJS) $(LIBRARIES) libblastify.a
 
 # Blastify library
 libblastify.a: $(LIBBLASTIFY_OBJS)
