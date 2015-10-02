@@ -1,0 +1,13 @@
+# Ignore vim temp files
+*~
+
+# Ignore build products
+build_config.mk
+
+# Ignore object files
+*.o
+
+# Ignore binaries
+blastify
+blastifyd
+libblastify.a
